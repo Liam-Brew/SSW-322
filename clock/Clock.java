@@ -9,6 +9,7 @@ class Clock {
     private Calendar alarmCalendar;
     private Radio radio;
     private String timeLabel;
+    private boolean alarmSet;
 
     // Constructor
     public Clock(int hour, int minute, String timeLabel, int alarmHour, int alarmMin, double frequency) {
@@ -23,6 +24,7 @@ class Clock {
         this.alarmCalendar.set(Calendar.MINUTE, alarmMin);
 
         this.timeLabel = timeLabel;
+        this.alarmSet = true;
 
         // Radio setting
         this.radio = new Radio();
@@ -53,7 +55,7 @@ class Clock {
 
     public boolean alarmActivate() {
         return (this.alarmCalendar.get(Calendar.HOUR) == this.calendar.get(Calendar.HOUR))
-                && (this.alarmCalendar.get(Calendar.MINUTE) == this.calendar.get(Calendar.MINUTE));
+                && (this.alarmCalendar.get(Calendar.MINUTE) == this.calendar.get(Calendar.MINUTE)) && alarmSet;
     }
 
     public void alarm() {
@@ -68,6 +70,7 @@ class Clock {
     }
 
     public void setAlarm(int hour, int minute) {
+        this.alarmSet = true;
         this.alarmCalendar.add(Calendar.HOUR, hour);
         this.alarmCalendar.add(Calendar.MINUTE, minute);
     }
@@ -79,10 +82,14 @@ class Clock {
         System.out.println("The alarm was turned off.");
     }
 
+    public void stopAlarm(){
+        this.alarmSet = false;
+    }
+
     public static void main(String[] args) throws InterruptedException {
 
         // 1 minute alarm
-        Clock clock = new Clock(8, 0, "AM", 8, 1, 1060.1);
+        Clock clock = new Clock(8, 0, "AM", 8, 5, 1060.1);
 
         System.out.print("Initial Time: ");
         clock.showTime();
