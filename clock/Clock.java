@@ -92,7 +92,9 @@ class Clock {
 
         String initial = clock.getTime();
 
-        while (clock.calendar.get(Calendar.MINUTE) < 30) {
+        int snoozes = 0;
+
+        while (snoozes < 2) {
             if (!initial.equals(clock.getTime())) {
                 clock.showTime();
                 initial = clock.getTime();
@@ -101,6 +103,7 @@ class Clock {
             if (clock.alarmActivate()) {
                 clock.alarm();
                 clock.snooze();
+                snoozes++;
             }
 
             clock.tickIncrement();
@@ -109,7 +112,7 @@ class Clock {
         }
 
         clock.deleteAlarm();
-
+        clock.radio.turnOff();
     }
 
 }
