@@ -1,6 +1,6 @@
 package  beverages;
 
-import interfaces.CoffeeBeverage;
+import abstract_classes.CoffeeBeverage;
 
 public class HouseBlend extends CoffeeBeverage {
 

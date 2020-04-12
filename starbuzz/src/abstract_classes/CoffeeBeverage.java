@@ -1,4 +1,4 @@
-package interfaces;
+package abstract_classes;
 
 public abstract class CoffeeBeverage extends Beverage {
 

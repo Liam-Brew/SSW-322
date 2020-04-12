@@ -1,7 +1,6 @@
 package ingredients;
 
-import interfaces.Beverage;
-import interfaces.Ingredient;
+import abstract_classes.*;
 
 public class Ginger extends Ingredient {
 

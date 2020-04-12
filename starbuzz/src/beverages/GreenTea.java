@@ -1,6 +1,6 @@
 package beverages;
 
-import interfaces.TeaBeverage;
+import abstract_classes.TeaBeverage;
 
 public class GreenTea extends TeaBeverage {
 
