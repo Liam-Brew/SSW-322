@@ -37,6 +37,7 @@ public class AdvancedComputerPartsFactory implements ComputerPartsFactory {
         return keyboard;
     }
 
+    @Override
     public int getPrice() {
         return this.price;
     }
